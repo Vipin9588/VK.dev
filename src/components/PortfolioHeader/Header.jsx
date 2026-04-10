@@ -86,7 +86,7 @@ export default function Header() {
       <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@500&display=swap" rel="stylesheet" />
 
       <header
-        className="fixed border-4 w-screen border-pink-700 top-0 left-0 right-0 z-50 transition-all duration-300 "
+        className="fixed  w-full  top-0 left-0 right-0 z-50 transition-all duration-300 "
         style={{
           background: bg,
           borderBottom: `1px solid ${borderColor}`,
@@ -94,7 +94,7 @@ export default function Header() {
           WebkitBackdropFilter: scrolled ? "blur(16px) saturate(180%)" : "none",
         }}
       >
-        <div className="max-w-6xl mx-auto px-5 sm:px-8 border-2 border-green-500">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 ">
           <div className="flex items-center justify-between h-16 sm:h-[70px]">
  
             
@@ -153,7 +153,7 @@ export default function Header() {
           ref={mobileMenuRef}
           className="md:hidden fixed right-0 top-0 bottom-0 z-50 w-72 flex flex-col transition-transform duration-300 ease-in-out"
           style={{
-            transform: menuOpen ? "translateX(0)" : "translateX(150%)",
+            transform: menuOpen ? "translateX(0)" : "translateX(100%)",
             background: dark ? "#0f172a" : "#ffffff",
             // borderLeft: `1px solid ${dark ? "#1e293b" : "#e2e8f0"}`,
             border:"4px solid red"
@@ -264,7 +264,7 @@ export default function Header() {
               alignItems: "center",
               justifyContent: "center",
             }}
-             className='border-2 border-red-500'
+             
           >
             <div style={{ textAlign: "center" }}>
             

@@ -76,7 +76,7 @@ export default function SkillSection({dark}) {
     <>
       <style>
         {`
- 
+          
        
         .skill-section {
           font-family: 'DM Sans', sans-serif;
@@ -86,27 +86,10 @@ export default function SkillSection({dark}) {
           overflow: hidden;
         }
  
-        /* Decorative blobs */
-        .skill-section::before {
-          content: '';
-          position: absolute;
-          top: -120px; right: -120px;
-          width: 480px; height: 480px;
-    
-          border-radius: 50%;
-          pointer-events: none;
-        }
-        .skill-section::after {
-          content: '';
-          position: absolute;
-          bottom: -80px; left: -80px;
-          width: 360px; height: 360px;
-          border-radius: 50%;
-          pointer-events: none;
-        }
+      
  
         .skill-inner {
-          max-width: 1100px;
+          width: 100%;
           margin: 0 auto;
           position: relative;
           z-index: 1;
@@ -204,11 +187,12 @@ export default function SkillSection({dark}) {
         animation: underlineMove 2s linear infinite;
       }
 
+
       `}
       </style>
 
       <section
-        className="skill-section borde-2 border-green-500"
+        className="skill-section "
         ref={sectionRef}
       >
         <div className="skill-inner">

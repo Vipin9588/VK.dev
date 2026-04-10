@@ -37,14 +37,13 @@ export default function ContactSection({ dark }) {
   };
 
   // ── theme-aware tokens ──────────────────────────────────────────────────────
-  const bg          = dark ? "bg-[#0d0d12]"        : "bg-white";
   const text        = dark ? "text-white"           : "text-zinc-900";
   const textMuted   = dark ? "text-zinc-400"        : "text-zinc-500";
-  const cardBg      = dark ? "bg-white/[0.03]"      : "bg-zinc-50";
+  const cardbg      = dark ? "bg-white/[0.03]"      : "bg-zinc-50";
   const cardBorder  = dark ? "border-white/[0.07]"  : "border-zinc-300";
-  const rowBg       = dark ? "bg-white/[0.04]"      : "bg-zinc-100";
+  const rowbg       = dark ? "bg-white/[0.04]"      : "bg-zinc-100";
   const rowBorder   = dark ? "border-white/[0.06]"  : "border-zinc-200";
-  const iconBg      = dark ? "bg-white/[0.05]"      : "bg-zinc-100";
+  const iconbg      = dark ? "bg-white/[0.05]"      : "bg-zinc-100";
   const iconBorder  = dark ? "border-white/[0.07]"  : "border-zinc-200";
   const socialItem  = dark
     ? "bg-white/[0.03] border-white/[0.06] text-zinc-500 hover:border-white/20 hover:bg-white/[0.06]"
@@ -52,18 +51,12 @@ export default function ContactSection({ dark }) {
   const inputBase   = `w-full border rounded-xl px-4 py-3 text-sm outline-none transition-all duration-200 focus:ring-2 focus:ring-violet-500/40 placeholder-zinc-500 ${
     dark ? "bg-white/5 text-white border-white/[0.08]" : "bg-zinc-50 text-zinc-900 border-zinc-200"
   }`;
-  const activeDotBg = dark ? "bg-[#0d0d12]" : "bg-white";
+  const activeDotbg = dark ? "bg-[#0d0d12]" : "bg-white";
   // ───────────────────────────────────────────────────────────────────────────
 
   return (
-    <section className={` min-h-screen w-screen ${bg} ${text} font-sans py-20 px-4 relative overflow-hidden`}>
+    <section className={` min-h-screen w-[97vw]  ${text} font-sans py-20 px-4 relative overflow-hidden`}>
 
-      {/* Ambient blobs */}
-      <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full bg-blue-900/20 blur-[120px]" />
-        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full bg-purple-900/20 blur-[100px]" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full bg-fuchsia-900/10 blur-[80px]" />
-      </div>
 
     
       <div
@@ -103,13 +96,13 @@ export default function ContactSection({ dark }) {
           <div className="lg:col-span-2 flex flex-col gap-6">
 
             {/* Profile card */}
-            <div className={`rounded-2xl border ${cardBorder} ${cardBg} p-6 backdrop-blur-sm`}>
+            <div className={`rounded-2xl border ${cardBorder} ${cardbg} p-6 backdrop-blur-sm`}>
               <div className="flex items-center gap-4 mb-6">
                 <div className="relative">
                   <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-violet-500 to-indigo-500 flex items-center justify-center text-xl font-bold">
                     <img src="./VK.png" alt="" />
                   </div>
-                  <span className={`absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-emerald-400 border-2 ${activeDotBg}`} />
+                  <span className={`absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-emerald-400 border-2 ${activeDotbg}`} />
                 </div>
                 <div>
                   <p className={`font-semibold ${text} text-sm`}>Alex Morgan</p>
@@ -122,7 +115,7 @@ export default function ContactSection({ dark }) {
                 {availability.map((a, i) => (
                   <div
                     key={i}
-                    className={`flex items-center gap-2.5 text-xs ${textMuted} ${rowBg} rounded-lg px-3 py-2.5 border ${rowBorder}`}
+                    className={`flex items-center gap-2.5 text-xs ${textMuted} ${rowbg} rounded-lg px-3 py-2.5 border ${rowBorder}`}
                   >
                     <span className={`w-2 h-2 rounded-full ${a.dot} shrink-0`} />
                     {a.text}
@@ -138,7 +131,7 @@ export default function ContactSection({ dark }) {
                     href={href}
                     className={`flex items-center gap-3 group ${textMuted} hover:${text} transition-colors duration-150`}
                   >
-                    <div className={`w-8 h-8 rounded-lg ${iconBg} border ${iconBorder} flex items-center justify-center group-hover:border-blue-500/40 group-hover:bg-blue-500/10 transition-all duration-200`}>
+                    <div className={`w-8 h-8 rounded-lg ${iconbg} border ${iconBorder} flex items-center justify-center group-hover:border-blue-500/40 group-hover:bg-blue-500/10 transition-all duration-200`}>
                       <Icon size={13} className="text-blue-800" />
                     </div>
                     <div>
@@ -152,7 +145,7 @@ export default function ContactSection({ dark }) {
 
 
             
-            <div className={`rounded-2xl border ${cardBorder} ${cardBg} p-5 backdrop-blur-sm`}>
+            <div className={`rounded-2xl border ${cardBorder} ${cardbg} p-5 backdrop-blur-sm`}>
               <p className="text-[10px] text-zinc-500 uppercase tracking-widest font-semibold mb-4">Find me on</p>
               <div className="grid grid-cols-4 gap-3">
                 {socialLinks.map(({ icon: Icon, label, href, color }) => (
@@ -183,7 +176,7 @@ export default function ContactSection({ dark }) {
 
           
           <div className="lg:col-span-3">
-            <div className={`rounded-2xl border ${cardBorder} ${cardBg} p-7 md:p-8 backdrop-blur-sm h-full`}>
+            <div className={`rounded-2xl border ${cardBorder} ${cardbg} p-7 md:p-8 backdrop-blur-sm h-full`}>
               {submitted ? (
                 <div className="h-full flex flex-col items-center justify-center py-16 text-center">
                   <div className="w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center mb-5">
