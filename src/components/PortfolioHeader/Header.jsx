@@ -153,7 +153,7 @@ export default function Header() {
           ref={mobileMenuRef}
           className="md:hidden fixed right-0 top-0 bottom-0 z-50 w-72 flex flex-col transition-transform duration-300 ease-in-out"
           style={{
-            transform: menuOpen ? "translateX(0)" : "translateX(100%)",
+            transform: menuOpen ? "translateX(0)" : "translateX(150%)",
             background: dark ? "#0f172a" : "#ffffff",
             // borderLeft: `1px solid ${dark ? "#1e293b" : "#e2e8f0"}`,
             border:"4px solid red"
