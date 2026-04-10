@@ -57,8 +57,7 @@ export default function ContactSection({ dark }) {
   return (
     <section className={` min-h-screen w-[97vw]  ${text} font-sans py-20 px-4 relative overflow-hidden`}>
 
-
-    
+      
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.04]"
         style={{

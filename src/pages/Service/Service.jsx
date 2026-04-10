@@ -75,7 +75,7 @@ export default function ServicesSection({dark}) {
   return (
     <section
       style={{ fontFamily: "'DM Sans', 'Segoe UI', sans-serif" }}
-      className="mt-4 relative min-h-screen overflow-hidden px-16 py-16 md:px-14 lg:px-20"
+      className="mt-4 relative min-h-screen overflow-hidden px-6 py-6 md:px-14 lg:px-20"
     >
       {/* Background blobs */}
       {/* <div
