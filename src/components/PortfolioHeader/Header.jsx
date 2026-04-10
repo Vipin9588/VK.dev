@@ -86,7 +86,7 @@ export default function Header() {
       <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@500&display=swap" rel="stylesheet" />
 
       <header
-        className="fixed border-4 w-screen border-pink-700 top-0 left-0 right-0 z-50 transition-all duration-300 bg-yellow-400"
+        className="fixed border-4 w-screen border-pink-700 top-0 left-0 right-0 z-50 transition-all duration-300 "
         style={{
           background: bg,
           borderBottom: `1px solid ${borderColor}`,
@@ -94,7 +94,7 @@ export default function Header() {
           WebkitBackdropFilter: scrolled ? "blur(16px) saturate(180%)" : "none",
         }}
       >
-        <div className="max-w-6xl mx-auto px-5 sm:px-8">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 border-2 border-green-500">
           <div className="flex items-center justify-between h-16 sm:h-[70px]">
  
             
