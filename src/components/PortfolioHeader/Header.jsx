@@ -86,7 +86,7 @@ export default function Header() {
       <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@500&display=swap" rel="stylesheet" />
 
       <header
-        className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+        className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-red-400"
         style={{
           background: bg,
           borderBottom: `1px solid ${borderColor}`,
