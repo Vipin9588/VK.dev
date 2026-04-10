@@ -263,7 +263,7 @@ export default function Header() {
               alignItems: "center",
               justifyContent: "center",
             }}
-             className='border-2 border-red-500'
+             className='borde-2 border-red-500'
           >
             <div style={{ textAlign: "center" }}>
             
