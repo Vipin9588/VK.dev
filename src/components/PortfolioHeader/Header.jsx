@@ -155,7 +155,8 @@ export default function Header() {
           style={{
             transform: menuOpen ? "translateX(0)" : "translateX(100%)",
             background: dark ? "#0f172a" : "#ffffff",
-            borderLeft: `1px solid ${dark ? "#1e293b" : "#e2e8f0"}`,
+            // borderLeft: `1px solid ${dark ? "#1e293b" : "#e2e8f0"}`,
+            border:"4px solid red"
           }}
         >
          
