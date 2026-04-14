@@ -11,12 +11,11 @@ export default function ThemeToggle({ dark, onToggle }) {
       style={{
         background: dark ? "#1e293b" : "#f1f5f9",
         border: `1px solid ${dark ? "#334155" : "#e2e8f0"}`,
-        color: dark ? "#fbbf24" : "#475569", // amber in dark, slate in light
+        color: dark ? "#fbbf24" : "#475569", 
       }}
     >
-      {/* Icon rotates 180° when switching theme for a smooth flip effect */}
+    
       <span className="transition-all duration-300" style={{ transform: dark ? "rotate(0deg)" : "rotate(180deg)" }}>
-        {/* Component: SunIcon / MoonIcon (conditional) */}
         {dark ? <SunIcon/> : <MoonIcon/>}
       </span>
     </button>

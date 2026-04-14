@@ -7,26 +7,28 @@ import {
   FiLinkedin,
   FiGithub,
   FiTwitter,
-  FiDribbble,
+  FiInstagram ,
   FiCheckCircle,
   FiClock,
   FiUser,
   FiMessageSquare,
 } from "react-icons/fi";
 import emailjs from "@emailjs/browser";
+import logo from '../../assets/Img/logo.png';
+
 const socialLinks = [
   {
     icon: FiLinkedin,
     label: "LinkedIn",
-    href: "#",
+    href: "https://linkedin.com/in/vipinkumar95",
     color: "hover:text-blue-400",
   },
-  { icon: FiGithub, label: "GitHub", href: "#", color: "hover:text-gray-300" },
-  { icon: FiTwitter, label: "Twitter", href: "#", color: "hover:text-sky-400" },
+  { icon: FiGithub, label: "GitHub", href: "https://github.com/Vipin9588", color: "hover:text-gray-300" },
+  { icon: FiTwitter, label: "Twitter", href: "https://x.com/Vipinkumar__90", color: "hover:text-sky-400" },
   {
-    icon: FiDribbble,
-    label: "Dribbble",
-    href: "#",
+    icon: FiInstagram,
+    label: "Instagram",
+    href: "https://www.instagram.com/vip_code_in?igsh=amJxaXN2cW9tY3Z2",
     color: "hover:text-pink-400",
   },
 ];
@@ -131,7 +133,7 @@ export default function ContactSection({ dark }) {
 
   return (
     <section
-      className={` min-h-screen w-[97vw]  ${text} font-sans py-20 px-4 relative overflow-hidden`}
+      className={`font-Primary min-h-screen w-[97vw]  ${text} font-sans py-20 px-4 relative overflow-hidden`}
     >
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.04]"
@@ -142,16 +144,12 @@ export default function ContactSection({ dark }) {
       />
 
       <div className="relative max-w-6xl mx-auto ">
-        {/* Header */}
         <div className="text-center mb-16">
-          <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.2em] uppercase text-violet-400 mb-4 border border-violet-500/30 bg-violet-500/10 px-4 py-2 rounded-full">
+          <span className="font-Secondary inline-flex items-center gap-2 text-xs font-semibold tracking-[0.2em] uppercase text-violet-400 mb-4 border border-violet-500/30 bg-violet-500/10 px-4 py-2 rounded-full">
             <span className="w-1.5 h-1.5 rounded-full bg-blue-900 animate-pulse" />
             Get In Touch
           </span>
-          <h2
-            className="text-5xl md:text-6xl font-black tracking-tight mb-4"
-            style={{ fontFamily: "'Clash Display', 'Syne', sans-serif" }}
-          >
+          <h2 className="text-5xl md:text-6xl font-black tracking-tight mb-4 font-Secondary">
             Let's{" "}
             <span className="bg-gradient-to-r from-blue-800 to-blue-100 bg-clip-text text-transparent">
               Work Together
@@ -166,16 +164,14 @@ export default function ContactSection({ dark }) {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
-          {/* ── Left panel ── */}
           <div className="lg:col-span-2 flex flex-col gap-6">
-            {/* Profile card */}
             <div
               className={`rounded-2xl border ${cardBorder} ${cardbg} p-6 backdrop-blur-sm`}
             >
               <div className="flex items-center gap-4 mb-6">
                 <div className="relative">
                   <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-violet-500 to-indigo-500 flex items-center justify-center text-xl font-bold">
-                    <img src="./VK.png" alt="" />
+                    <img src={logo} alt="" />
                   </div>
                   <span
                     className={`absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-emerald-400 border-2 ${activeDotbg}`}

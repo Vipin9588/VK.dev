@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face{
+    font-family:"CustomPrimaryFont";
+    src:url('/src/assets/Fonts/Roboto-Regular.ttf') format("truetype");
+    
+}
+
+@font-face{
+    font-family:"CustomSecondaryFont";
+    src:url('/src/assets/Fonts/Sansation-Bold.ttf') format("truetype");
+}

@@ -74,24 +74,10 @@ export default function ServicesSection({dark}) {
 
   return (
     <section
-      style={{ fontFamily: "'DM Sans', 'Segoe UI', sans-serif" }}
-      className="mt-4 relative min-h-screen overflow-hidden px-6 py-6 md:px-14 lg:px-20"
+      className="font-Primary mt-4 relative min-h-screen overflow-hidden px-6 py-6 md:px-14 lg:px-20"
     >
-      {/* Background blobs */}
-      {/* <div
-        className="absolute top-16 left-0 w-72 h-72 rounded-full opacity-20 pointer-events-none"
-        style={{ background: "#FECDD3", filter: "blur(60px)" }}
-      />
-      <div
-        className="absolute top-8 right-0 w-80 h-80 rounded-full opacity-20 pointer-events-none"
-        style={{ background: "#C7D2FE", filter: "blur(60px)" }}
-      />
-      <div
-        className="absolute bottom-20 left-1/2 w-96 h-64 rounded-full opacity-10 pointer-events-none"
-        style={{ background: "#A7F3D0", filter: "blur(80px)" }}
-      /> */}
-
-      {/* Header */}
+    
+  
       <div className="relative z-10 max-w-5xl mx-auto mb-14">
         <p
           className="text-sm tracking-widest uppercase mb-4"
@@ -100,7 +86,7 @@ export default function ServicesSection({dark}) {
           Our Services
         </p>
         <h2
-          className={`text-4xl  ${dark?"text-teal-50":"text-[#111827]"}  md:text-5xl font-bold leading-tight max-w-3xl`}
+          className={`text-4xl  ${dark?"text-teal-50":"text-[#111827]"}  md:text-5xl font-Secondary leading-tight max-w-3xl`}
           style={{ color: "#", lineHeight: 1.15 }}
         >
           We are a boutique team that writes stories that have been created so
@@ -109,7 +95,7 @@ export default function ServicesSection({dark}) {
       </div>
 
       {/* Cards Grid */}
-      <div className="relative z-10 max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="font-Primary relative z-10 max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {services.slice(0, 4).map((s) => (
           <ServiceCard
             key={s.id}

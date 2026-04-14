@@ -1,5 +1,4 @@
-import React from 'react'
-
+import logo from '../../assets/Img/logo.png';
 export default function Logo({ dark }) {
   return (
     <a href="#home" className="flex items-center gap-2.5 group select-none">
@@ -9,7 +8,7 @@ export default function Logo({ dark }) {
       >
         <span style={{ fontFamily: "'DM Mono', monospace", letterSpacing: "-0.05em" }}>
 
-          <img src="./VK.png" alt="" />
+          <img src={logo} alt="" />
         </span>
          <span
           className="absolute -bottom-1 -right-1 w-3 h-3 rounded-full border-2"

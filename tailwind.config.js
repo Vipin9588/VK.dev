@@ -9,6 +9,10 @@ export default {
        backgroundImage: {
         'custom-gradient': 'linear-gradient(180deg, #0f172a 0%, #020617 100%)',
       },
+      fontFamily:{
+        Primary:["CustomPrimaryFont","sans"],
+        Secondary:["CustomSecondaryFont","serif"]
+      }
     },
   },
   plugins: [],

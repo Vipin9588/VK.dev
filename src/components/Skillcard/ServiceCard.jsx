@@ -8,7 +8,7 @@ export default function ServiceCard({ icon, title, onClick ,active,i,dark}) {
       hover:border-gray-500 hover:shadow-lg transition-all duration-300 
       hover:-translate-y-1 cursor-pointer flex items-center gap-4
       active:border-white 
-      ${active === i ? "border-yellow-400 bg-gray-800" : "border-gray-700"}
+      ${active === i ? "border-2 border-blue-400 " : "border-gray-700"}
       `}
     >
      

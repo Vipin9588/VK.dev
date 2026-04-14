@@ -1,108 +1,203 @@
 import React, { useState, useEffect } from "react";
-import InstagramCard from "../../components/Postcard/InstagramCard";
-export default function HeroSection({dark}) {
-  const badges = [
-  { label: "React Expert", color: "bg-blue-100 text-blue-700" },
-  { label: "UI/UX Design", color: "bg-purple-100 text-purple-700" },
-  { label: "$50–$150/HR", color: "bg-green-100 text-green-700" },
-];
-
-const brands = [
-  { name: "Figma", icon: "𝔽" },
-  { name: "Notion", icon: "𝕹" },
-  { name: "Framer", icon: "Fr" },
-  { name: "Webflow", icon: "W" },
-];
+import profile from '../../assets/Img/Profile.png';
+export default function HeroSection({ dark }) {
   const [visible, setVisible] = useState(false);
- 
+
   useEffect(() => {
     const t = setTimeout(() => setVisible(true), 100);
     return () => clearTimeout(t);
   }, []);
- 
-  return (
 
-    <section className={`w-full h-full b-[#f5f4f0] flex flex-col font-sans  ${dark?"text-white":"text-black"}`}>
-    
-      <div className="flex-1 flex items-center px-8 lg:px-16 pb-12 pt-12 ">
-        <div className="w-full max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-           <div
-            className={`transition-all duration-700 ease-out ${
-              visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+  const badges = [
+    { label: "React Expert", style: "lime" },
+    { label: "UI / UX Developement", style: "ghost" },
+    { label: "$50 – $150 / hr", style: "ghost" },
+  ];
+
+  const stats = [
+    { num: "1", label: "Years of\nExperience" },
+    { num: "5+", label: "Projects\nDelivered" },
+    { num: "4", label: "Happy\nClients" },
+  ];
+
+  // const brands = ["Figma", "Notion", "Framer", "Webflow", "Asana"];
+
+  return (
+    <section
+      className={`font-Primary w-[100%] md:p-12 min-h-screen grid grid-cols-1 lg:grid-cols-2  overflow-hidden transition-colors duration-300 ${
+        dark ? " text-[#f0ede6]" : " text-[#0e0e0f]"
+      }`}
+    >
+      <div
+        className={`flex flex-col justify-between px-10 py-14 lg:px-16 lg:border-r transition-all duration-700 ease-out  ${
+          visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+        } ${dark ? "border-white/10" : "border-black/10"}`}
+      >
+        <div>
+          <div
+            className={`flex items-center gap-2 text-[11px]  tracking-widest uppercase mb-8 ${
+              dark ? "text-white/40" : "text-black/40"
             }`}
           >
-         
-            <h1 className="text-[clamp(3rem,7vw,5.5rem)] font-black leading-[0.92] tracking-tight  mb-6">
-              Hi, I'm a<br />
-              <span className="italic font-black">Fullstack</span>
-              <br />
-              developer
-              <span className="text-gray-400">©</span>
-            </h1>
- 
-            <p className="text-gray-500 text-base leading-relaxed max-w-sm mb-8">
-              I have 1 years of experience working on useful and mindful
-              products together with startups and known brands.
-            </p>
- 
-            <button className="bg-gray-900 text-white text-sm font-semibold px-7 py-3 rounded-full hover:bg-black transition-all hover:scale-105 active:scale-95 shadow-lg shadow-gray-900/20">
-              Contact Us
+            <span className=" inline-block w-2 h-2 rounded-full bg-[#5de0e6] shadow-[0_0_0_3px_rgba(197,247,74,0.2)]" />
+            Available for projects · {new Date().getFullYear()}
+          </div>
+
+          <h1
+            className={`text-[clamp(3rem,5vw,5rem)] leading-[1] tracking-tight mb-6 ${
+              dark ? "text-[#f0ede6]" : "text-[#0e0e0f]"
+            } font-Secondary`}
+          >
+            Hi, I'm a
+            <br />
+            <em className="italic bg-gradient-to-r from-[#5de0e6] to-[#0078a6] p-2 bg-clip-text text-transparent">
+              Fullstack
+            </em>
+            <br />
+            developer.
+          </h1>
+
+          <p
+            className={`text-sm leading-relaxed max-w-xs mb-10 ${
+              dark ? "text-white/45" : "text-black/45"
+            } `}
+          >
+            1 year crafting thoughtful digital products — from pixel-precise UI
+            to robust backends — with startups and known brands.
+          </p>
+
+          <div className="flex items-center gap-4 mb-14">
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+
+                const section = document.getElementById("contact");
+
+                if (section) {
+                  section.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
+              className="bg-gradient-to-r from-[#5de0e6] to-[#0078a6] text-[#0e0e0f] text-[14px]  px-7 py-3 rounded-full hover:-translate-y-0.5 hover:shadow-[0_8px_24px_#0078a6] transition-all duration-150"
+            >
+              Let's talk
+            </button>
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+
+                const section = document.getElementById("projects");
+
+                if (section) {
+                  section.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
+              className={`text-[13px] px-5 py-3 rounded-full border transition-all duration-150 ${
+                dark
+                  ? "border-white/15 text-white/55 hover:border-white/40 hover:text-white"
+                  : "border-black/15 text-black/55 hover:border-black/40 hover:text-black"
+              }`}
+            >
+              See my work →
             </button>
           </div>
- 
+        </div>
 
-          <div
-            className={`relative h-[460px] transition-all duration-700 delay-200 ease-out ${
-              visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            }`}
-          >
-           
-            <div className="absolute top-0 right-0 w-[250px] md:w-[300px] md:h-[320px] z-10 ">
-              <InstagramCard dark={dark}/>
-            </div>
- 
-            <div className="absolute top-8 right-[200px] md:right-[240px] w-[130px] h-[165px] rounded-2xl overflow-hidden shadow-xl border-4 border-white z-20">
-              <div className="w-full h-full bg-gradient-to-br from-stone-300 via-amber-200 to-orange-300 flex items-center justify-center">
-                <img src="./1me.jpeg" alt="" />
-              </div>
-            </div>
- 
-            <div className="absolute bottom-0 right-0 w-[310px] bg-gradient-to-br from-teal-400 to-cyan-500 rounded-2xl shadow-xl p-4 z-10">
-              <p className="text-white/80 text-xs mb-3 font-medium">
-                The most recent brands I happily worked with ♡
-              </p>
-              <div className="flex items-center gap-3">
-                {brands.map((b) => (
-                  <div
-                    key={b.name}
-                    className="w-9 h-9 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white text-xs font-bold hover:bg-white/40 transition-colors cursor-pointer"
-                    title={b.name}
-                  >
-                    {b.icon}
-                  </div>
-                ))}
-              </div>
-              <div className="mt-3 flex gap-3 overflow-hidden">
-                {["Squarespace", "Asana", "Attentive", "Framer"].map((n) => (
-                  <span key={n} className="text-white/70 text-[11px] font-semibold whitespace-nowrap">
-                    {n}
-                  </span>
-                ))}
-              </div>
-            </div>
- 
-            <div className="absolute top-[52%] left-0 bg-white rounded-xl shadow-lg px-4 py-2.5 z-30 flex items-center gap-2">
-              <span className="text-2xl font-black text-gray-900">1</span>
-              <div className="text-xs text-gray-500 leading-tight">
-                Years of<br />Experience
-              </div>
-            </div>
-          </div>
- 
+        {/* Badges */}
+        <div className="flex flex-wrap gap-2">
+          {badges.map((b) => (
+            <span
+              key={b.label}
+              className={`text-[11px]  px-4 py-1.5 rounded-full border tracking-wide ${
+                b.style === "lime"
+                  ? "bg-[rgba(197,247,74,0.12)] text-[rgb(55,202,228)] border-[rgba(20,188,221,0.25)]"
+                  : dark
+                    ? "bg-white/7 text-white/60 border-white/10"
+                    : "bg-black/5 text-black/55 border-black/10"
+              }`}
+            >
+              {b.label}
+            </span>
+          ))}
         </div>
       </div>
- 
-    
+
+      {/* ─── RIGHT PANEL ─── */}
+      <div
+        className={`relative flex flex-col justify-between px-10 py-14 lg:px-12 overflow-hidden transition-all duration-700 delay-150 ease-out ${
+          visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+        } ${dark ? "bg-[#161617]" : "bg-[#f1f0ed]"}`}
+      >
+        {/* Stats Row */}
+        <div className="grid grid-cols-3 gap-4 mb-8 relative z-10">
+          {stats.map((s) => (
+            <div
+              key={s.num}
+              className={`rounded-2xl p-5 border ${
+                dark ? "bg-[#1e1e1f] border-white/8" : "bg-white border-black/8"
+              }`}
+            >
+              <div
+                className={`text-4xl leading-none mb-1 ${
+                  dark ? "text-[#f0ede6]" : "text-[#0e0e0f]"
+                }`}
+              >
+                {s.num}
+              </div>
+              <div
+                className={`text-xs leading-snug whitespace-pre-line ${
+                  dark ? "text-white/45" : "text-black/45"
+                }`}
+              >
+                {s.label}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="relative rounded-2xl overflow-hidden h-52 md:h-80 lg:h-74 mb-6 z-10">
+          <div className="absolute inset-0 bg-gradient-to-br from-stone-300 via-amber-200 to-orange-300">
+            <img
+              src={profile}
+              alt="Profile"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="absolute bottom-4 left-4 flex items-center gap-3 bg-black/50 backdrop-blur-sm rounded-xl px-4 py-2.5">
+            <div className="w-8 h-8 rounded-full bg-[#5de0e6] flex items-center justify-center text-[10px]  text-black flex-shrink-0">
+              YO
+            </div>
+            <div className="text-white text-xs leading-snug">
+              <span className="block text-[13px] ">Open to work</span>
+              React · Node · Design
+            </div>
+          </div>
+        </div>
+
+        {/* Brand pills */}
+        {/* <div className="relative z-10">
+          <p
+            className={`text-[11px] uppercase tracking-widest  mb-3 ${
+              dark ? "text-white/35" : "text-black/35"
+            }`}
+          >
+            Recent brands
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {brands.map((name) => (
+              <span
+                key={name}
+                className={`text-xs px-4 py-1.5 rounded-full border ${
+                  dark
+                    ? "bg-[#1e1e1f] border-white/10 text-white/60"
+                    : "bg-white border-black/10 text-black/60"
+                }`}
+              >
+                {name}
+              </span>
+            ))}
+          </div>
+        </div> */}
+      </div>
     </section>
   );
 }

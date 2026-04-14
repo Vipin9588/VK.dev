@@ -12,8 +12,8 @@ import { SiPostman } from "react-icons/si";
 import Speech from "../../components/speechbuble/Speech";
 import Logo from "../../components/PortfolioHeader/Logo";
 import ServicesSection from "../Service/Service";
+import logo from '../../assets/Img/LogoTransparent.png';
 
-// ─── Data ─────────────────────────────────────────────────────────────────────
 
 const skills = [
   { name: "HTML",        Icon: LiaHtml5,     accent: "#e34c26", bg: "#fff1ee" },
@@ -70,7 +70,6 @@ export default function SkillSection({ dark }) {
     <>
       <style>{`
         .skill-section {
-          font-family: 'DM Sans', sans-serif;
           width: 100%;
           min-height: 100vh;
           padding: 80px 16px 60px;
@@ -105,8 +104,8 @@ export default function SkillSection({ dark }) {
         }
 
         .skill-title {
-          font-family: 'Syne', sans-serif;
-          font-size: clamp(32px, 5vw, 54px);
+          // font-family: 'Syne', sans-serif;
+          font-size: clamp(32px, 4vw, 54px);
           font-weight: 800;
           color: ${dark ? "#f1f5f9" : "#0f172a"};
           line-height: 1.05;
@@ -152,6 +151,7 @@ export default function SkillSection({ dark }) {
           flex-wrap: wrap;
           gap: 10px;
           padding: 8px;
+        
         }
 
         /* ── Image card ── */
@@ -244,9 +244,17 @@ export default function SkillSection({ dark }) {
 
           .skill-image-card {
             max-width: 100%;
-            height: 200px;
+            height: 400px;
             margin-top: 0;
           }
+
+          .skill-image-card img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 12px;
+          display: block;
+        }
 
           .services-row {
             flex-direction: column;
@@ -270,7 +278,7 @@ export default function SkillSection({ dark }) {
           }
 
           .skills-panel {
-            gap: 8px;
+            gap: 14px;
             padding: 4px;
           }
 
@@ -291,7 +299,11 @@ export default function SkillSection({ dark }) {
           }
         }
 
-        /* Very small: 360px and below */
+        @media(max-width:378px){
+        .skills-panel {
+          justify-content:center;
+        }}
+        
         @media (max-width: 360px) {
           .skill-section {
             padding: 10px 10px 32px;
@@ -299,13 +311,12 @@ export default function SkillSection({ dark }) {
         }
       `}</style>
 
-      <section className="skill-section" ref={sectionRef}>
+      <section className="skill-section font-Pr" ref={sectionRef}>
         <div className="skill-inner">
 
-          {/* ── Heading ── */}
           <div className={`skill-heading-wrap ${visible ? "show" : ""}`}>
             <p className="skill-eyebrow">What I work with</p>
-            <h2 className="skill-title">
+            <h2 className="skill-title font-Secondary">
               My <span>Skills</span>
             </h2>
             <p className="skill-subtitle">
@@ -314,9 +325,8 @@ export default function SkillSection({ dark }) {
             </p>
           </div>
 
-          {/* ── Two-column: skills + image ── */}
+          
           <div className="skill-grid">
-            {/* Left: skill cards */}
             <div className="skills-panel">
               {skills.map((skill, i) => (
                 <SkillCard
@@ -328,14 +338,14 @@ export default function SkillSection({ dark }) {
               ))}
             </div>
 
-            {/* Right: image with speech bubble */}
+          
             <div className="skill-image-card">
               <img src="./codingsetup.jpg" alt="Coding setup" />
               <Speech text={clicked} />
             </div>
           </div>
 
-          {/* ── Service cards ── */}
+         
           <div className="services-row">
             {services.map((c, i) => (
               <ServiceCard
@@ -353,14 +363,14 @@ export default function SkillSection({ dark }) {
             ))}
           </div>
 
-          {/* ── CTA strip ── */}
+          
           <div className="skill-cta">
             <p>
               Need a reliable developer who delivers clean code and modern UI?
               I'm ready to bring your project to life.
             </p>
-            <span className="skill-cta-link">
-              Have a project in mind? Let's build it together <Logo />
+            <span className="skill-cta-link ">
+              Have a project in mind? Let's build it together <span><img src={logo} alt="" className="w-10 h-10" /></span>
               <span className="skill-cta-underline">
                 <span className="block w-[200%] h-full bg-gradient-to-r from-transparent via-blue-400 to-transparent animate-underlineMove" />
               </span>

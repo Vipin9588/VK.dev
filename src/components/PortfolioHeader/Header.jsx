@@ -83,10 +83,9 @@ export default function Header() {
   return (
     <>
   
-      <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@500&display=swap" rel="stylesheet" />
 
       <header
-        className="fixed  w-full  top-0 left-0 right-0 z-50 transition-all duration-300 "
+        className="fixed font-Primary w-full  top-0 left-0 right-0 z-50 transition-all duration-300 "
         style={{
           background: bg,
           borderBottom: `1px solid ${borderColor}`,
@@ -108,6 +107,7 @@ export default function Header() {
                   {...link}
                   active={activeSection === link.href.replace("#", "")}
                   dark={dark}
+                  
                 />
               ))}
             </nav>
@@ -260,9 +260,9 @@ export default function Header() {
             id={link.href.replace("#", "")}
             style={{
               minHeight: "100vh",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
+              // display: "flex",
+              // alignItems: "center",
+              // justifyContent: "center",
             }}
              
           >

@@ -2,19 +2,20 @@ import { useState } from "react";
 import {
   FiGithub, FiLinkedin, FiTwitter, FiArrowRight,
 } from "react-icons/fi";
-import { SiDribbble } from "react-icons/si";
+import { FiInstagram } from "react-icons/fi";
+
 
 const navLinks = {
-  Work:     ["Portfolio", "Case studies", "Open source", "Side projects", "Dribbble shots"],
-  Services: ["Web design", "Development", "Brand identity", "UI / UX audit", "Consulting"],
+  Work:     ["Portfolio", "Case studies", "Open source", "Side projects"],
+  Services: ["Web design", "Development", "Brand identity", "Consulting"],
   Connect:  ["About me", "Blog", "Contact", "Hire me", "Resume"],
 };
 
 const socials = [
-  { icon: FiGithub,   label: "GitHub"   },
-  { icon: FiLinkedin, label: "LinkedIn" },
-  { icon: FiTwitter,  label: "Twitter"  },
-  { icon: SiDribbble, label: "Dribbble" },
+  { icon: FiGithub,   label: "GitHub" , link:"https://github.com/Vipin9588" },
+  { icon: FiLinkedin, label: "LinkedIn",link:"https://linkedin.com/in/vipinkumar95"},
+  { icon: FiTwitter,  label: "Twitter" ,link:"https://x.com/Vipinkumar__90" },
+  { icon: FiInstagram, label: "Instagram ",link:"https://www.instagram.com/vip_code_in?igsh=amJxaXN2cW9tY3Z2" },
 ];
 
 const newBadge = "Development";
@@ -23,7 +24,6 @@ export default function Footer({ dark = true }) {
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
 
-  // ── theme tokens ────────────────────────────────────────────────
   const bg          = dark ? "bg-[#0d0d12]"           : "bg-[#f8f8f6]";
   const text        = dark ? "text-zinc-100"           : "text-zinc-900";
   const muted       = dark ? "text-zinc-500"           : "text-zinc-500";
@@ -41,7 +41,6 @@ export default function Footer({ dark = true }) {
   const bottomLink  = dark
     ? "text-zinc-600 hover:text-zinc-400"
     : "text-zinc-400 hover:text-zinc-600";
-  // ────────────────────────────────────────────────────────────────
 
   const handleSubscribe = (e) => {
     e.preventDefault();
@@ -52,21 +51,19 @@ export default function Footer({ dark = true }) {
   };
 
   return (
-    <footer className={`${bg} ${text} w-full font-sans`}>
+    <footer className={`${bg} ${text} w-full font-Primary`}>
 
-      {/* ── Main grid ── */}
+      
       <div className="max-w-6xl mx-auto px-8 pt-14 pb-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr] gap-10">
 
-        {/* Brand + newsletter */}
         <div className="sm:col-span-2 lg:col-span-1">
           <p className="text-xl font-black tracking-tight mb-2.5">
-            Alex<span className="text-indigo-500">.</span>dev
+            VK<span className="text-indigo-500">.</span>dev
           </p>
           <p className={`${muted} text-sm leading-relaxed mb-5 max-w-[240px]`}>
             Full-stack designer & developer crafting beautiful digital experiences. Available for freelance projects worldwide.
           </p>
 
-          {/* Newsletter */}
           <p className={`text-[10px] font-semibold uppercase tracking-widest ${subtle} mb-2`}>
             Stay in the loop
           </p>
@@ -90,16 +87,17 @@ export default function Footer({ dark = true }) {
             </form>
           )}
 
-          {/* Socials */}
           <div className="flex gap-2 mt-5">
-            {socials.map(({ icon: Icon, label }) => (
-              <button
+            {socials.map(({ icon: Icon, label,link }) => (
+              <a
+               href={link}
+                target="_blank" 
                 key={label}
                 aria-label={label}
                 className={`w-8 h-8 rounded-lg border flex items-center justify-center transition-all duration-150 ${socialCls}`}
               >
                 <Icon size={14} />
-              </button>
+              </a>
             ))}
           </div>
         </div>
@@ -131,13 +129,11 @@ export default function Footer({ dark = true }) {
         ))}
       </div>
 
-      {/* ── Divider ── */}
       <div className={`border-t ${divider} mx-8`} />
 
-      {/* ── Bottom bar ── */}
       <div className="max-w-6xl mx-auto px-8 py-5 flex flex-wrap items-center justify-between gap-3">
         <p className={`text-xs ${subtle}`}>
-          © {new Date().getFullYear()} Alex Morgan. All rights reserved.
+          © {new Date().getFullYear()} VK.dev. All rights reserved.
         </p>
 
         <div className="flex items-center gap-2">
