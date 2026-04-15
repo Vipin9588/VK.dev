@@ -12,20 +12,19 @@ import { SiPostman } from "react-icons/si";
 import Speech from "../../components/speechbuble/Speech";
 import Logo from "../../components/PortfolioHeader/Logo";
 import ServicesSection from "../Service/Service";
-import logo from '../../assets/Img/LogoTransparent.png';
-
+import logo from "../../assets/Img/LogoTransparent.png";
 
 const skills = [
-  { name: "HTML",        Icon: LiaHtml5,     accent: "#e34c26", bg: "#fff1ee" },
-  { name: "CSS",         Icon: BiLogoCss3,   accent: "#264de4", bg: "#eef0ff" },
-  { name: "Tailwind",    Icon: SiTailwindcss,accent: "#06b6d4", bg: "#ecfeff" },
-  { name: "JavaScript",  Icon: LiaJsSquare,  accent: "#f7df1e", bg: "#fffde7" },
-  { name: "React.js",    Icon: FaReact,      accent: "#61dafb", bg: "#e8fbff" },
-  { name: "Node.js",     Icon: FaNodeJs,     accent: "#3c873a", bg: "#edfaed" },
-  { name: "MySQL",       Icon: SiMysql,      accent: "#f48022", bg: "#fff5eb" },
-  { name: "Express.js",  Icon: SiExpress,    accent: "#61dafb", bg: "#e8fbff" },
-  { name: "Git",         Icon: FaGitAlt,     accent: "#f48022", bg: "#fff5eb" },
-  { name: "Postman",     Icon: SiPostman,    accent: "#f48022", bg: "#fff5eb" },
+  { name: "HTML", Icon: LiaHtml5, accent: "#e34c26", bg: "#fff1ee" },
+  { name: "CSS", Icon: BiLogoCss3, accent: "#264de4", bg: "#eef0ff" },
+  { name: "Tailwind", Icon: SiTailwindcss, accent: "#06b6d4", bg: "#ecfeff" },
+  { name: "JavaScript", Icon: LiaJsSquare, accent: "#f7df1e", bg: "#fffde7" },
+  { name: "React.js", Icon: FaReact, accent: "#61dafb", bg: "#e8fbff" },
+  { name: "Node.js", Icon: FaNodeJs, accent: "#3c873a", bg: "#edfaed" },
+  { name: "MySQL", Icon: SiMysql, accent: "#f48022", bg: "#fff5eb" },
+  { name: "Express.js", Icon: SiExpress, accent: "#61dafb", bg: "#e8fbff" },
+  { name: "Git", Icon: FaGitAlt, accent: "#f48022", bg: "#fff5eb" },
+  { name: "Postman", Icon: SiPostman, accent: "#f48022", bg: "#fff5eb" },
 ];
 
 const services = [
@@ -54,13 +53,15 @@ export default function SkillSection({ dark }) {
   const [visible, setVisible] = useState(false);
   const [active, setActive] = useState(null);
   const [clicked, setClicked] = useState(
-    "Hey! 👋 Select a service below to explore my expertise"
+    "Hey! 👋 Select a service below to explore my expertise",
   );
 
   useEffect(() => {
     const obs = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
-      { threshold: 0.1 }
+      ([entry]) => {
+        if (entry.isIntersecting) setVisible(true);
+      },
+      { threshold: 0.1 },
     );
     if (sectionRef.current) obs.observe(sectionRef.current);
     return () => obs.disconnect();
@@ -313,7 +314,6 @@ export default function SkillSection({ dark }) {
 
       <section className="skill-section font-Pr" ref={sectionRef}>
         <div className="skill-inner">
-
           <div className={`skill-heading-wrap ${visible ? "show" : ""}`}>
             <p className="skill-eyebrow">What I work with</p>
             <h2 className="skill-title font-Secondary">
@@ -325,7 +325,6 @@ export default function SkillSection({ dark }) {
             </p>
           </div>
 
-          
           <div className="skill-grid">
             <div className="skills-panel">
               {skills.map((skill, i) => (
@@ -338,14 +337,12 @@ export default function SkillSection({ dark }) {
               ))}
             </div>
 
-          
             <div className="skill-image-card">
               <img src="./codingsetup.jpg" alt="Coding setup" />
               <Speech text={clicked} />
             </div>
           </div>
 
-         
           <div className="services-row">
             {services.map((c, i) => (
               <ServiceCard
@@ -363,14 +360,16 @@ export default function SkillSection({ dark }) {
             ))}
           </div>
 
-          
           <div className="skill-cta">
             <p>
               Need a reliable developer who delivers clean code and modern UI?
               I'm ready to bring your project to life.
             </p>
             <span className="skill-cta-link ">
-              Have a project in mind? Let's build it together <span><img src={logo} alt="" className="w-10 h-10" /></span>
+              Have a project in mind? Let's build it together{" "}
+              <span>
+                <img src={logo} alt="" className="w-10 h-10" />
+              </span>
               <span className="skill-cta-underline">
                 <span className="block w-[200%] h-full bg-gradient-to-r from-transparent via-blue-400 to-transparent animate-underlineMove" />
               </span>
