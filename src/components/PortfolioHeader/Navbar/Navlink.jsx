@@ -1,8 +1,8 @@
 export default function NavLink({ href, label, active, dark }) {
   const handleClick = (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
 
-    const id = href.replace("#", ""); 
+    const id = href.replace("#", "");
     const section = document.getElementById(id);
 
     if (section) {
@@ -17,11 +17,7 @@ export default function NavLink({ href, label, active, dark }) {
       className="relative text-sm font-medium transition-colors duration-200 group"
       style={{
         fontFamily: "'DM Sans', sans-serif",
-        color: active
-          ? "#2563EB"
-          : dark
-          ? "#cbd5e1"
-          : "#475569",
+        color: active ? "#2563EB" : dark ? "#cbd5e1" : "#475569",
       }}
     >
       {label}

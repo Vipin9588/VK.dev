@@ -69,15 +69,11 @@ const services = [
   },
 ];
 
-export default function ServicesSection({dark}) {
+export default function ServicesSection({ dark }) {
   const [hovered, setHovered] = useState(null);
 
   return (
-    <section
-      className="font-Primary mt-4 relative min-h-screen overflow-hidden px-6 py-6 md:px-14 lg:px-20"
-    >
-    
-  
+    <section className="font-Primary mt-4 relative min-h-screen overflow-hidden px-6 py-6 md:px-14 lg:px-20">
       <div className="relative z-10 max-w-5xl mx-auto mb-14">
         <p
           className="text-sm tracking-widest uppercase mb-4"
@@ -86,7 +82,7 @@ export default function ServicesSection({dark}) {
           Our Services
         </p>
         <h2
-          className={`text-4xl  ${dark?"text-teal-50":"text-[#111827]"}  md:text-5xl font-Secondary leading-tight max-w-3xl`}
+          className={`text-4xl  ${dark ? "text-teal-50" : "text-[#111827]"}  md:text-5xl font-Secondary leading-tight max-w-3xl`}
           style={{ color: "#", lineHeight: 1.15 }}
         >
           We are a boutique team that writes stories that have been created so
@@ -131,8 +127,11 @@ function ServiceCard({ service, hovered, onHover, onLeave }) {
       className="rounded-3xl p-8 flex flex-col items-center text-center cursor-pointer select-none"
       style={{
         background: service.bg,
-        transform: hovered ? "translateY(-10px) scale(1.02)" : "translateY(0px) scale(1)",
-        transition: "transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s ease",
+        transform: hovered
+          ? "translateY(-10px) scale(1.02)"
+          : "translateY(0px) scale(1)",
+        transition:
+          "transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s ease",
         boxShadow: hovered
           ? `0 24px 48px ${service.bg}66`
           : "0 4px 16px rgba(0,0,0,0.08)",
@@ -140,7 +139,6 @@ function ServiceCard({ service, hovered, onHover, onLeave }) {
         justifyContent: "space-between",
       }}
     >
-    
       {!service.best && <div className="h-6" />}
 
       {/* Icon */}
@@ -148,10 +146,7 @@ function ServiceCard({ service, hovered, onHover, onLeave }) {
 
       {/* Text */}
       <div>
-        <h3
-          className="text-xl font-bold mb-3"
-          style={{ color: "#fff" }}
-        >
+        <h3 className="text-xl font-bold mb-3" style={{ color: "#fff" }}>
           {service.title}
         </h3>
         <p

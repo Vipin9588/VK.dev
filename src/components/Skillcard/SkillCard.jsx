@@ -1,12 +1,11 @@
 import { useState } from "react";
 export default function SkillCard({ skill, index, visible }) {
   const [hovered, setHovered] = useState(false);
- 
+
   return (
     <div style={{ display: "contents" }}>
       <style>
-        {
-          `
+        {`
           .skill-card {
                     display: flex;
                     flex-direction: column;
@@ -66,35 +65,33 @@ export default function SkillCard({ skill, index, visible }) {
                     border-radius: 999px;
                     transition: width 0.8s cubic-bezier(0.4,0,0.2,1);
                   }
-                  .skill-card:hover .skill-bar-fill { width: 85%; }`
-        }
+                  .skill-card:hover .skill-bar-fill { width: 85%; }`}
       </style>
 
       <div
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      style={{
-        "--accent": skill.accent,
-        "--bg": skill.bg,
-        animationDelay: `${index * 80}ms`,
-      }}
-      className={`skill-card ${visible ? "show" : ""}`}
-    >
-      <div
-        className="skill-icon-wrap"
-        style={{ color: hovered ? skill.accent : "#94a3b8" }}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        style={{
+          "--accent": skill.accent,
+          "--bg": skill.bg,
+          animationDelay: `${index * 80}ms`,
+        }}
+        className={`skill-card ${visible ? "show" : ""}`}
       >
-        <skill.Icon />
-      </div>
-      <span className="skill-label">{skill.name}</span>
-      <div className="skill-bar">
         <div
-          className="skill-bar-fill"
-          style={{ background: skill.accent }}
-        />
+          className="skill-icon-wrap"
+          style={{ color: hovered ? skill.accent : "#94a3b8" }}
+        >
+          <skill.Icon />
+        </div>
+        <span className="skill-label">{skill.name}</span>
+        <div className="skill-bar">
+          <div
+            className="skill-bar-fill"
+            style={{ background: skill.accent }}
+          />
+        </div>
       </div>
-    </div>
     </div>
   );
 }
- 

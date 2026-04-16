@@ -7,14 +7,14 @@ import {
   FiLinkedin,
   FiGithub,
   FiTwitter,
-  FiInstagram ,
+  FiInstagram,
   FiCheckCircle,
   FiClock,
   FiUser,
   FiMessageSquare,
 } from "react-icons/fi";
 import emailjs from "@emailjs/browser";
-import logo from '../../assets/Img/logo.png';
+import logo from "../../assets/Img/logo.png";
 
 const socialLinks = [
   {
@@ -23,8 +23,18 @@ const socialLinks = [
     href: "https://linkedin.com/in/vipinkumar95",
     color: "hover:text-blue-400",
   },
-  { icon: FiGithub, label: "GitHub", href: "https://github.com/Vipin9588", color: "hover:text-gray-300" },
-  { icon: FiTwitter, label: "Twitter", href: "https://x.com/Vipinkumar__90", color: "hover:text-sky-400" },
+  {
+    icon: FiGithub,
+    label: "GitHub",
+    href: "https://github.com/Vipin9588",
+    color: "hover:text-gray-300",
+  },
+  {
+    icon: FiTwitter,
+    label: "Twitter",
+    href: "https://x.com/Vipinkumar__90",
+    color: "hover:text-sky-400",
+  },
   {
     icon: FiInstagram,
     label: "Instagram",

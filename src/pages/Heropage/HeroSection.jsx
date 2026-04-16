@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import profile from '../../assets/Img/Profile.png';
+import profile from "../../assets/Img/Profile.png";
 export default function HeroSection({ dark }) {
   const [visible, setVisible] = useState(false);
 

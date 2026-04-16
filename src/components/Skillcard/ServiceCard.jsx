@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function ServiceCard({ icon, title, onClick ,active,i,dark}) {
+export default function ServiceCard({ icon, title, onClick, active, i, dark }) {
   return (
     <div
       onClick={onClick}
@@ -11,12 +11,15 @@ export default function ServiceCard({ icon, title, onClick ,active,i,dark}) {
       ${active === i ? "border-2 border-blue-400 " : "border-gray-700"}
       `}
     >
-     
       <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-gray-800 text-lg">
         {icon}
       </div>
 
-      <h3 className={`${dark?"text-white":"text-black"} font-medium text-sm`}>{title}</h3>
+      <h3
+        className={`${dark ? "text-white" : "text-black"} font-medium text-sm`}
+      >
+        {title}
+      </h3>
     </div>
   );
 }
