@@ -1,202 +1,208 @@
 import React, { useState, useEffect } from "react";
-import profile from "../../assets/Img/Profile.png";
+
 export default function HeroSection({ dark }) {
-  const [visible, setVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
+  // Trigger fade-in/slide-up animation on mount
   useEffect(() => {
-    const t = setTimeout(() => setVisible(true), 100);
-    return () => clearTimeout(t);
+    const timer = setTimeout(() => setIsVisible(true), 100);
+    return () => clearTimeout(timer);
   }, []);
-
-  const badges = [
-    { label: "React Expert", style: "lime" },
-    { label: "UI / UX Developement", style: "ghost" },
-    { label: "$50 – $150 / hr", style: "ghost" },
-  ];
-
-  const stats = [
-    { num: "1", label: "Years of\nExperience" },
-    { num: "5+", label: "Projects\nDelivered" },
-    { num: "4", label: "Happy\nClients" },
-  ];
-
-  // const brands = ["Figma", "Notion", "Framer", "Webflow", "Asana"];
 
   return (
     <section
-      className={`font-Primary w-[100%] md:p-12 min-h-screen grid grid-cols-1 lg:grid-cols-2  overflow-hidden transition-colors duration-300 ${
-        dark ? " text-[#f0ede6]" : " text-[#0e0e0f]"
+      // Added font-Primary here so all text inherits it by default
+      className={`font-Primary relative min-h-screen overflow-hidden flex items-center transition-colors duration-500 ${
+        dark ? "bg-[#0b0f19] text-slate-100" : "bg-[#f8fafc] text-slate-900"
       }`}
     >
+      {/* Background glow effects */}
       <div
-        className={`flex flex-col justify-between px-10 py-14 lg:px-16 lg:border-r transition-all duration-700 ease-out  ${
-          visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-        } ${dark ? "border-white/10" : "border-black/10"}`}
-      >
-        <div>
+        className={`absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full blur-[120px] pointer-events-none transition-opacity duration-500 ${
+          dark ? "bg-blue-600/20" : "bg-blue-400/30"
+        }`}
+      />
+      <div
+        className={`absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full blur-[120px] pointer-events-none transition-opacity duration-500 ${
+          dark ? "bg-emerald-500/10" : "bg-emerald-400/20"
+        }`}
+      />
+
+      <div className="container mx-auto px-6 py-16 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center relative z-10">
+        {/* ─── LEFT PANEL: TEXT CONTENT ─── */}
+        <div
+          className={`flex flex-col items-start transition-all duration-1000 ease-out ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
+        >
+          {/* Status Badge */}
           <div
-            className={`flex items-center gap-2 text-[11px]  tracking-widest uppercase mb-8 ${
-              dark ? "text-white/40" : "text-black/40"
+            className={`flex items-center gap-2 px-4 py-2 rounded-full border backdrop-blur-sm mb-8 transition-colors duration-500 ${
+              dark
+                ? "bg-slate-800/50 border-slate-700"
+                : "bg-white/60 border-slate-200 shadow-sm"
             }`}
           >
-            <span className=" inline-block w-2 h-2 rounded-full bg-[#5de0e6] shadow-[0_0_0_3px_rgba(197,247,74,0.2)]" />
-            Available for projects · {new Date().getFullYear()}
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+            </span>
+            <span
+              className={`text-xs font-medium tracking-wide uppercase ${
+                dark ? "text-slate-300" : "text-slate-600"
+              }`}
+            >
+              Available for work
+            </span>
           </div>
 
-          <h1
-            className={`text-[clamp(3rem,5vw,5rem)] leading-[1] tracking-tight mb-6 ${
-              dark ? "text-[#f0ede6]" : "text-[#0e0e0f]"
-            } font-Secondary`}
-          >
-            Hi, I'm a
-            <br />
-            <em className="italic bg-gradient-to-r from-[#5de0e6] to-[#0078a6] p-2 bg-clip-text text-transparent">
-              Fullstack
-            </em>
-            <br />
-            developer.
+          {/* Main Heading */}
+          {/* Added font-Secondary here for the bold Sansation look */}
+          <h1 className="font-Secondary text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.1] font-extrabold tracking-tight mb-6">
+            I Build{" "}
+            <span
+              className={`text-transparent bg-clip-text bg-gradient-to-r ${
+                dark
+                  ? "from-blue-400 via-indigo-400 to-emerald-400"
+                  : "from-blue-600 via-indigo-600 to-emerald-500"
+              }`}
+            >
+              Modern Websites
+            </span>{" "}
+            <br className="hidden md:block" />
+            That Help Businesses Get More Customers
           </h1>
 
+          {/* Subheading */}
           <p
-            className={`text-sm leading-relaxed max-w-xs mb-10 ${
-              dark ? "text-white/45" : "text-black/45"
-            } `}
-          >
-            1 year crafting thoughtful digital products — from pixel-precise UI
-            to robust backends — with startups and known brands.
-          </p>
-
-          <div className="flex items-center gap-4 mb-14">
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-
-                const section = document.getElementById("contact");
-
-                if (section) {
-                  section.scrollIntoView({ behavior: "smooth" });
-                }
-              }}
-              className="bg-gradient-to-r from-[#5de0e6] to-[#0078a6] text-[#0e0e0f] text-[14px]  px-7 py-3 rounded-full hover:-translate-y-0.5 hover:shadow-[0_8px_24px_#0078a6] transition-all duration-150"
-            >
-              Let's talk
-            </button>
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-
-                const section = document.getElementById("projects");
-
-                if (section) {
-                  section.scrollIntoView({ behavior: "smooth" });
-                }
-              }}
-              className={`text-[13px] px-5 py-3 rounded-full border transition-all duration-150 ${
-                dark
-                  ? "border-white/15 text-white/55 hover:border-white/40 hover:text-white"
-                  : "border-black/15 text-black/55 hover:border-black/40 hover:text-black"
-              }`}
-            >
-              See my work →
-            </button>
-          </div>
-        </div>
-
-        {/* Badges */}
-        <div className="flex flex-wrap gap-2">
-          {badges.map((b) => (
-            <span
-              key={b.label}
-              className={`text-[11px]  px-4 py-1.5 rounded-full border tracking-wide ${
-                b.style === "lime"
-                  ? "bg-[rgba(197,247,74,0.12)] text-[rgb(55,202,228)] border-[rgba(20,188,221,0.25)]"
-                  : dark
-                    ? "bg-white/7 text-white/60 border-white/10"
-                    : "bg-black/5 text-black/55 border-black/10"
-              }`}
-            >
-              {b.label}
-            </span>
-          ))}
-        </div>
-      </div>
-
-      {/* ─── RIGHT PANEL ─── */}
-      <div
-        className={`relative flex flex-col justify-between px-10 py-14 lg:px-12 overflow-hidden transition-all duration-700 delay-150 ease-out ${
-          visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-        } ${dark ? "bg-[#161617]" : "bg-[#f1f0ed]"}`}
-      >
-        {/* Stats Row */}
-        <div className="grid grid-cols-3 gap-4 mb-8 relative z-10">
-          {stats.map((s) => (
-            <div
-              key={s.num}
-              className={`rounded-2xl p-5 border ${
-                dark ? "bg-[#1e1e1f] border-white/8" : "bg-white border-black/8"
-              }`}
-            >
-              <div
-                className={`text-4xl leading-none mb-1 ${
-                  dark ? "text-[#f0ede6]" : "text-[#0e0e0f]"
-                }`}
-              >
-                {s.num}
-              </div>
-              <div
-                className={`text-xs leading-snug whitespace-pre-line ${
-                  dark ? "text-white/45" : "text-black/45"
-                }`}
-              >
-                {s.label}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="relative rounded-2xl overflow-hidden h-52 md:h-80 lg:h-74 mb-6 z-10">
-          <div className="absolute inset-0 bg-gradient-to-br from-stone-300 via-amber-200 to-orange-300">
-            <img
-              src={profile}
-              alt="Profile"
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div className="absolute bottom-4 left-4 flex items-center gap-3 bg-black/50 backdrop-blur-sm rounded-xl px-4 py-2.5">
-            <div className="w-8 h-8 rounded-full bg-[#5de0e6] flex items-center justify-center text-[10px]  text-black flex-shrink-0">
-              YO
-            </div>
-            <div className="text-white text-xs leading-snug">
-              <span className="block text-[13px] ">Open to work</span>
-              React · Node · Design
-            </div>
-          </div>
-        </div>
-
-        {/* Brand pills */}
-        {/* <div className="relative z-10">
-          <p
-            className={`text-[11px] uppercase tracking-widest  mb-3 ${
-              dark ? "text-white/35" : "text-black/35"
+            className={`text-base md:text-lg leading-relaxed max-w-xl mb-10 transition-colors duration-500 ${
+              dark ? "text-slate-400" : "text-slate-600"
             }`}
           >
-            Recent brands
+            I'm a Full Stack Developer specializing in fast, responsive, and
+            user-friendly websites using React, Node.js, and MySQL.
           </p>
-          <div className="flex flex-wrap gap-2">
-            {brands.map((name) => (
-              <span
-                key={name}
-                className={`text-xs px-4 py-1.5 rounded-full border ${
+
+          {/* CTA Buttons */}
+          <div className="flex flex-wrap items-center gap-4 mb-12">
+            <button
+              onClick={() =>
+                document
+                  .getElementById("projects")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
+              className="px-8 py-3.5 rounded-full bg-gradient-to-r from-blue-500 to-emerald-500 text-white font-medium hover:shadow-[0_0_20px_rgba(59,130,246,0.4)] hover:-translate-y-1 transition-all duration-300"
+            >
+              View My Work
+            </button>
+            <button
+              onClick={() =>
+                document
+                  .getElementById("contact")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
+              className={`px-8 py-3.5 rounded-full border font-medium hover:-translate-y-1 transition-all duration-300 ${
+                dark
+                  ? "bg-slate-800 border-slate-700 text-slate-200 hover:bg-slate-700 hover:text-white"
+                  : "bg-white border-slate-200 text-slate-700 hover:bg-slate-50 hover:text-slate-900 hover:shadow-md"
+              }`}
+            >
+              Contact Me
+            </button>
+          </div>
+
+          {/* Social Icons (SVG code omitted for brevity, keep your existing ones here) */}
+          <div className="flex items-center gap-5">
+             <a href="https://github.com" target="_blank" rel="noreferrer" className={`transition-colors duration-200 ${dark ? "text-slate-400 hover:text-white" : "text-slate-500 hover:text-slate-900"}`}>
+               {/* GitHub SVG */}
+               GitHub
+             </a>
+             <a href="https://linkedin.com" target="_blank" rel="noreferrer" className={`transition-colors duration-200 ${dark ? "text-slate-400 hover:text-white" : "text-slate-500 hover:text-slate-900"}`}>
+               {/* LinkedIn SVG */}
+               LinkedIn
+             </a>
+          </div>
+        </div>
+
+        {/* ─── RIGHT PANEL: ILLUSTRATION / IMAGE ─── */}
+        <div
+          className={`relative w-full h-[400px] md:h-[500px] transition-all duration-1000 delay-200 ease-out ${
+            isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
+          }`}
+        >
+          <div
+            className={`absolute inset-0 backdrop-blur-xl border rounded-2xl shadow-2xl overflow-hidden flex flex-col transform hover:scale-[1.02] transition-all duration-500 ${
+              dark
+                ? "bg-slate-800/80 border-slate-700"
+                : "bg-white/80 border-slate-200"
+            }`}
+          >
+            {/* Window Header */}
+            <div
+              className={`px-4 py-3 flex items-center gap-2 border-b ${
+                dark
+                  ? "bg-slate-900/50 border-slate-700/50"
+                  : "bg-slate-100/50 border-slate-200"
+              }`}
+            >
+              <div className="w-3 h-3 rounded-full bg-red-500/80" />
+              <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
+              <div className="w-3 h-3 rounded-full bg-emerald-500/80" />
+            </div>
+
+            {/* Image Area */}
+            <div
+              className={`flex-1 relative ${
+                dark ? "bg-slate-900" : "bg-slate-100"
+              }`}
+            >
+              <img
+                src="https://images.unsplash.com/photo-1605379399642-870262d3d051?q=80&w=2106&auto=format&fit=crop"
+                alt="Developer Setup"
+                className={`w-full h-full object-cover mix-blend-luminosity transition-opacity duration-500 ${
+                  dark ? "opacity-60" : "opacity-90"
+                }`}
+              />
+
+              <div
+                className={`absolute inset-0 bg-gradient-to-t transition-colors duration-500 ${
                   dark
-                    ? "bg-[#1e1e1f] border-white/10 text-white/60"
-                    : "bg-white border-black/10 text-black/60"
+                    ? "from-slate-900 via-transparent to-transparent"
+                    : "from-white via-transparent to-transparent"
+                }`}
+              />
+
+              {/* Floating tech stack badge */}
+              <div
+                className={`absolute bottom-6 right-6 backdrop-blur-md border p-4 rounded-xl shadow-xl flex items-center gap-3 transition-colors duration-500 ${
+                  dark
+                    ? "bg-slate-800/90 border-slate-700"
+                    : "bg-white/90 border-slate-200"
                 }`}
               >
-                {name}
-              </span>
-            ))}
+                <div className="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-xl">
+                  ⚛️
+                </div>
+                <div>
+                  <div
+                    className={`text-sm font-bold ${
+                      dark ? "text-white" : "text-slate-900"
+                    }`}
+                  >
+                    Full Stack
+                  </div>
+                  <div
+                    className={`text-xs ${
+                      dark ? "text-slate-400" : "text-slate-500"
+                    }`}
+                  >
+                    React • Node • MySQL
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div> */}
+        </div>
       </div>
     </section>
   );

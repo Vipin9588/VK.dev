@@ -1,71 +1,47 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import {
   FaCode,
   FaTools,
-  FaPaintBrush,
   FaServer,
   FaMobileAlt,
   FaUserTie,
-  FaPlug,
 } from "react-icons/fa";
 
 const services = [
   {
     id: 1,
-    label: "Our Services",
-    icon: <FaCode size={52} />,
-    title: "Frontend Development",
-    desc: "We build responsive, blazing-fast websites using React & Tailwind CSS — from Figma to fully working code.",
-    bg: "#EF4444",
-    best: true,
+    icon: <FaCode size={48} />,
+    title: "Business Website Development",
+    desc: "I build modern, responsive websites for businesses that help attract more customers and improve online presence.",
+    bg: "#EF4444", // Red
   },
   {
     id: 2,
-    icon: <FaPaintBrush size={52} />,
-    title: "UI Development",
-    desc: "Modern dashboards, landing pages and UI redesigns for startups and businesses that want to look great.",
-    bg: "#F59E0B",
-    best: false,
+    icon: <FaServer size={48} />,
+    title: "Full Stack Web Applications",
+    desc: "I develop complete web applications with login systems, dashboards, and database integration using Node.js and MySQL.",
+    bg: "#10B981", // Green
   },
   {
     id: 3,
-    icon: <FaServer size={52} />,
-    title: "Full Stack Apps",
-    desc: "CRUD apps, login systems, chat features and REST API integrations using Node.js and MySQL.",
-    bg: "#10B981",
-    best: false,
+    icon: <FaTools size={48} />,
+    title: "Website Bug Fixing",
+    desc: "I fix HTML, CSS, and JavaScript issues quickly and improve performance and user experience.",
+    bg: "#F59E0B", // Orange
   },
   {
     id: 4,
-    icon: <FaTools size={52} />,
-    title: "Bug Fixing",
-    desc: "Fix HTML/CSS issues, JavaScript errors, responsiveness problems and improve site performance fast.",
-    bg: "#6366F1",
-    best: true,
+    icon: <FaMobileAlt size={48} />,
+    title: "Mobile Responsive Fix",
+    desc: "I make websites fully responsive so they look perfect on mobile, tablet, and desktop devices.",
+    bg: "#6366F1", // Indigo
   },
   {
     id: 5,
-    icon: <FaMobileAlt size={52} />,
-    title: "Responsive Fix",
-    desc: "Many websites are broken on mobile. I'll make yours look perfect on every screen and device.",
-    bg: "#EC4899",
-    best: false,
-  },
-  {
-    id: 6,
-    icon: <FaUserTie size={52} />,
-    title: "Portfolio Sites",
-    desc: "Personal portfolio websites for developers, designers, and students — built to impress clients.",
-    bg: "#14B8A6",
-    best: false,
-  },
-  {
-    id: 7,
-    icon: <FaPlug size={52} />,
-    title: "API Integration",
-    desc: "Connect frontend to any backend or third-party API. Fetch and display dynamic data seamlessly.",
-    bg: "#F97316",
-    best: false,
+    icon: <FaUserTie size={48} />,
+    title: "Portfolio Website Design",
+    desc: "I create modern portfolio websites for developers, students, and professionals to showcase their work.",
+    bg: "#EC4899", // Pink
   },
 ];
 
@@ -73,26 +49,31 @@ export default function ServicesSection({ dark }) {
   const [hovered, setHovered] = useState(null);
 
   return (
-    <section className="font-Primary mt-4 relative min-h-screen overflow-hidden px-6 py-6 md:px-14 lg:px-20">
-      <div className="relative z-10 max-w-5xl mx-auto mb-14">
+    <section
+      className={`font-Primary mt-4 relative min-h-screen overflow-hidden px-6 py-20 md:px-14 lg:px-20 transition-colors duration-500 ${
+        dark ? "bg-[#0b0f19]" : "bg-[#f8fafc]"
+      }`}
+    >
+      <div className="relative z-10 max-w-5xl mx-auto mb-16 text-center">
         <p
-          className="text-sm tracking-widest uppercase mb-4"
-          style={{ color: "#9CA3AF", letterSpacing: "0.15em" }}
+          className={`text-sm tracking-widest uppercase mb-4 font-bold ${
+            dark ? "text-blue-400" : "text-blue-600"
+          }`}
         >
-          Our Services
+          What I Offer
         </p>
         <h2
-          className={`text-4xl  ${dark ? "text-teal-50" : "text-[#111827]"}  md:text-5xl font-Secondary leading-tight max-w-3xl`}
-          style={{ color: "#", lineHeight: 1.15 }}
+          className={`text-4xl md:text-5xl font-Secondary font-extrabold leading-tight max-w-3xl mx-auto ${
+            dark ? "text-white" : "text-slate-900"
+          }`}
         >
-          We are a boutique team that writes stories that have been created so
-          that you can achieve your goals.
+          Services I Offer to Help Your Business Grow Online
         </h2>
       </div>
 
-      {/* Cards Grid */}
-      <div className="font-Primary relative z-10 max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {services.slice(0, 4).map((s) => (
+      {/* Top Row: 3 Cards */}
+      <div className="relative z-10 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {services.slice(0, 3).map((s) => (
           <ServiceCard
             key={s.id}
             service={s}
@@ -103,9 +84,9 @@ export default function ServicesSection({ dark }) {
         ))}
       </div>
 
-      {/* Second row */}
-      <div className="relative z-10 max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
-        {services.slice(4).map((s) => (
+      {/* Bottom Row: 2 Cards (Centered) */}
+      <div className="relative z-10 max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+        {services.slice(3).map((s) => (
           <ServiceCard
             key={s.id}
             service={s}
@@ -114,6 +95,24 @@ export default function ServicesSection({ dark }) {
             onLeave={() => setHovered(null)}
           />
         ))}
+      </div>
+
+      {/* Contact CTA Button */}
+      <div className="relative z-10 mt-16 flex justify-center">
+        <button
+          onClick={() =>
+            document
+              .getElementById("contact")
+              ?.scrollIntoView({ behavior: "smooth" })
+          }
+          className={`px-8 py-4 rounded-full font-medium text-lg transition-all duration-300 hover:-translate-y-1 ${
+            dark
+              ? "bg-white text-slate-900 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)]"
+              : "bg-slate-900 text-white hover:shadow-[0_0_20px_rgba(0,0,0,0.3)]"
+          }`}
+        >
+          Contact Me
+        </button>
       </div>
     </section>
   );
@@ -135,23 +134,23 @@ function ServiceCard({ service, hovered, onHover, onLeave }) {
         boxShadow: hovered
           ? `0 24px 48px ${service.bg}66`
           : "0 4px 16px rgba(0,0,0,0.08)",
-        minHeight: "280px",
-        justifyContent: "space-between",
+        minHeight: "300px",
+        justifyContent: "center",
       }}
     >
-      {!service.best && <div className="h-6" />}
-
       {/* Icon */}
-      <div className="text-white mb-4 opacity-90">{service.icon}</div>
+      <div className="text-white mb-6 opacity-90 transition-transform duration-300 transform group-hover:scale-110">
+        {service.icon}
+      </div>
 
       {/* Text */}
       <div>
-        <h3 className="text-xl font-bold mb-3" style={{ color: "#fff" }}>
+        <h3 className="text-2xl font-bold mb-4" style={{ color: "#ffffff" }}>
           {service.title}
         </h3>
         <p
-          className="text-sm leading-relaxed"
-          style={{ color: "rgba(255,255,255,0.85)", lineHeight: 1.65 }}
+          className="text-[15px] leading-relaxed"
+          style={{ color: "rgba(255,255,255,0.9)", lineHeight: 1.6 }}
         >
           {service.desc}
         </p>

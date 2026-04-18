@@ -13,6 +13,7 @@ import {
   FiUser,
   FiMessageSquare,
 } from "react-icons/fi";
+import { FaWhatsapp } from "react-icons/fa";
 import emailjs from "@emailjs/browser";
 import logo from "../../assets/Img/logo.png";
 
@@ -143,7 +144,9 @@ export default function ContactSection({ dark }) {
 
   return (
     <section
-      className={`font-Primary min-h-screen w-[97vw]  ${text} font-sans py-20 px-4 relative overflow-hidden`}
+      className={`font-Primary min-h-screen w-full ${text} font-sans py-20 px-4 relative overflow-hidden transition-colors duration-500 ${
+        dark ? "bg-[#0b0f19]" : "bg-[#f8fafc]"
+      }`}
     >
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.04]"
@@ -188,7 +191,7 @@ export default function ContactSection({ dark }) {
                   />
                 </div>
                 <div>
-                  <p className={`font-semibold ${text} text-sm`}>Alex Morgan</p>
+                  <p className={`font-semibold ${text} text-sm`}>VK.dev</p>
                   <p className={`${textMuted} text-xs mt-0.5`}>
                     Full-Stack Designer &amp; Developer
                   </p>
@@ -238,7 +241,7 @@ export default function ContactSection({ dark }) {
               <p className="text-[10px] text-zinc-500 uppercase tracking-widest font-semibold mb-4">
                 Find me on
               </p>
-              <div className="grid grid-cols-4 gap-3">
+              <div className="grid grid-cols-4 gap-3 mb-4">
                 {socialLinks.map(({ icon: Icon, label, href, color }) => (
                   <a
                     key={label}
@@ -253,6 +256,20 @@ export default function ContactSection({ dark }) {
                   </a>
                 ))}
               </div>
+              
+              <a
+                href="https://wa.me/919588738897"
+                target="_blank"
+                rel="noreferrer"
+                className={`w-full flex items-center justify-center gap-2 py-3 rounded-xl border font-medium text-sm transition-all duration-200 ${
+                  dark
+                    ? "bg-emerald-500/10 border-emerald-500/20 text-emerald-400 hover:bg-emerald-500/20"
+                    : "bg-emerald-50 border-emerald-200 text-emerald-600 hover:bg-emerald-100"
+                }`}
+              >
+                <FaWhatsapp size={16} />
+                Chat on WhatsApp
+              </a>
             </div>
 
             <div

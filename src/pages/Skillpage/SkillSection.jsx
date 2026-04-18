@@ -1,16 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
-import { FaReact, FaNodeJs } from "react-icons/fa";
-import { SiTailwindcss, SiMysql } from "react-icons/si";
+import { FaReact, FaNodeJs, FaPalette, FaCogs, FaGlobeEurope, FaGitAlt } from "react-icons/fa";
+import { SiTailwindcss, SiMysql, SiExpress, SiPostman } from "react-icons/si";
 import { LiaHtml5, LiaJsSquare } from "react-icons/lia";
 import { BiLogoCss3 } from "react-icons/bi";
+
 import SkillCard from "../../components/Skillcard/SkillCard";
 import ServiceCard from "../../components/Skillcard/ServiceCard";
-import { FaPalette, FaCogs, FaGlobeEurope } from "react-icons/fa";
-import { SiExpress } from "react-icons/si";
-import { FaGitAlt } from "react-icons/fa";
-import { SiPostman } from "react-icons/si";
 import Speech from "../../components/speechbuble/Speech";
-import Logo from "../../components/PortfolioHeader/Logo";
 import ServicesSection from "../Service/Service";
 import logo from "../../assets/Img/LogoTransparent.png";
 
@@ -53,7 +49,7 @@ export default function SkillSection({ dark }) {
   const [visible, setVisible] = useState(false);
   const [active, setActive] = useState(null);
   const [clicked, setClicked] = useState(
-    "Hey! 👋 Select a service below to explore my expertise",
+    "Hey! 👋 Select a service below to explore my expertise"
   );
 
   useEffect(() => {
@@ -61,7 +57,7 @@ export default function SkillSection({ dark }) {
       ([entry]) => {
         if (entry.isIntersecting) setVisible(true);
       },
-      { threshold: 0.1 },
+      { threshold: 0.1 }
     );
     if (sectionRef.current) obs.observe(sectionRef.current);
     return () => obs.disconnect();
@@ -100,18 +96,19 @@ export default function SkillSection({ dark }) {
           font-weight: 700;
           letter-spacing: 0.18em;
           text-transform: uppercase;
-          color: #94a3b8;
+          color: ${dark ? "#60a5fa" : "#3b82f6"};
           margin-bottom: 10px;
+          transition: color 0.5s ease;
         }
 
         .skill-title {
-          // font-family: 'Syne', sans-serif;
           font-size: clamp(32px, 4vw, 54px);
           font-weight: 800;
           color: ${dark ? "#f1f5f9" : "#0f172a"};
           line-height: 1.05;
           letter-spacing: -0.02em;
           margin: 0 0 12px;
+          transition: color 0.5s ease;
         }
 
         .skill-title span {
@@ -123,9 +120,10 @@ export default function SkillSection({ dark }) {
           position: absolute;
           bottom: 4px; left: 0;
           width: 100%; height: 6px;
-          background: #fbbf24;
+          background: ${dark ? "#3b82f6" : "#fbbf24"};
           border-radius: 2px;
           z-index: -1;
+          transition: background-color 0.5s ease;
         }
 
         .skill-subtitle {
@@ -135,6 +133,7 @@ export default function SkillSection({ dark }) {
           line-height: 1.65;
           font-weight: 300;
           margin: 0;
+          transition: color 0.5s ease;
         }
 
         /* ── Main two-column grid ── */
@@ -152,7 +151,6 @@ export default function SkillSection({ dark }) {
           flex-wrap: wrap;
           gap: 10px;
           padding: 8px;
-        
         }
 
         /* ── Image card ── */
@@ -193,6 +191,7 @@ export default function SkillSection({ dark }) {
           gap: 8px;
           padding: 0 16px;
           color: ${dark ? "#f1f5f9" : "#0f172a"};
+          transition: color 0.5s ease;
         }
 
         .skill-cta p {
@@ -201,6 +200,7 @@ export default function SkillSection({ dark }) {
           line-height: 1.6;
           max-width: 560px;
           color: ${dark ? "#cbd5e1" : "#475569"};
+          transition: color 0.5s ease;
         }
 
         .skill-cta-link {
@@ -213,6 +213,7 @@ export default function SkillSection({ dark }) {
           color: ${dark ? "#f1f5f9" : "#0f172a"};
           cursor: pointer;
           padding-bottom: 12px;
+          transition: color 0.5s ease;
         }
 
         .skill-cta-underline {
@@ -231,94 +232,50 @@ export default function SkillSection({ dark }) {
         }
 
         /* ── Responsive breakpoints ── */
-
-        /* Tablet: 768px and below */
         @media (max-width: 768px) {
-          .skill-section {
-            padding: 60px 16px 48px;
-          }
-
-          .skill-grid {
-            grid-template-columns: 1fr;
-            gap: 28px;
-          }
-
-          .skill-image-card {
-            max-width: 100%;
-            height: 400px;
-            margin-top: 0;
-          }
-
-          .skill-image-card img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          border-radius: 12px;
-          display: block;
+          .skill-section { padding: 60px 16px 48px; }
+          .skill-grid { grid-template-columns: 1fr; gap: 28px; }
+          .skill-image-card { max-width: 100%; height: 400px; margin-top: 0; }
+          .skill-image-card img { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; display: block; }
+          .services-row { flex-direction: column; align-items: center; }
+          .services-row > * { width: 100%; max-width: 480px; }
         }
 
-          .services-row {
-            flex-direction: column;
-            align-items: center;
-          }
-
-          .services-row > * {
-            width: 100%;
-            max-width: 480px;
-          }
-        }
-
-        /* Mobile: 480px and below */
         @media (max-width: 480px) {
-          .skill-section {
-            padding: 48px 12px 40px;
-          }
-
-          .skill-heading-wrap {
-            margin-bottom: 32px;
-          }
-
-          .skills-panel {
-            gap: 14px;
-            padding: 4px;
-          }
-
-          .skill-image-card {
-            height: 180px;
-          }
-
-          .services-row {
-            gap: 12px;
-          }
-
-          .skill-cta p {
-            font-size: 14px;
-          }
-
-          .skill-cta-link {
-            font-size: 14px;
-          }
+          .skill-section { padding: 48px 12px 40px; }
+          .skill-heading-wrap { margin-bottom: 32px; }
+          .skills-panel { gap: 14px; padding: 4px; }
+          .skill-image-card { height: 180px; }
+          .services-row { gap: 12px; }
+          .skill-cta p { font-size: 14px; }
+          .skill-cta-link { font-size: 14px; }
         }
 
-        @media(max-width:378px){
-        .skills-panel {
-          justify-content:center;
-        }}
+        @media(max-width:378px) {
+          .skills-panel { justify-content:center; }
+        }
         
         @media (max-width: 360px) {
-          .skill-section {
-            padding: 10px 10px 32px;
-          }
+          .skill-section { padding: 10px 10px 32px; }
         }
       `}</style>
 
-      <section className="skill-section font-Pr" ref={sectionRef}>
+      {/* Added Tailwind background colors and transition to the wrapper, fixed font-Pr to font-Primary */}
+      <section 
+        className={`skill-section font-Primary transition-colors duration-500 ${
+          dark ? "bg-[#0b0f19]" : "bg-[#f8fafc]"
+        }`} 
+        ref={sectionRef}
+      >
         <div className="skill-inner">
           <div className={`skill-heading-wrap ${visible ? "show" : ""}`}>
-            <p className="skill-eyebrow">What I work with</p>
+            <p className="skill-eyebrow font-Secondary">What I work with</p>
+            
+            {/* Added font-Secondary to the heading */}
             <h2 className="skill-title font-Secondary">
               My <span>Skills</span>
             </h2>
+            
             <p className="skill-subtitle">
               Technologies I use to build modern, scalable web applications —
               from pixel to production.
@@ -333,13 +290,14 @@ export default function SkillSection({ dark }) {
                   skill={skill}
                   index={i}
                   visible={visible}
+                  dark={dark} // Passed dark prop down just in case SkillCard needs it
                 />
               ))}
             </div>
 
             <div className="skill-image-card">
               <img src="./codingsetup.jpg" alt="Coding setup" />
-              <Speech text={clicked} />
+              <Speech text={clicked} dark={dark} /> {/* Passed dark down if needed */}
             </div>
           </div>
 
@@ -365,13 +323,13 @@ export default function SkillSection({ dark }) {
               Need a reliable developer who delivers clean code and modern UI?
               I'm ready to bring your project to life.
             </p>
-            <span className="skill-cta-link ">
+            <span className="skill-cta-link">
               Have a project in mind? Let's build it together{" "}
               <span>
-                <img src={logo} alt="" className="w-10 h-10" />
+                <img src={logo} alt="Logo" className="w-10 h-10 object-contain" />
               </span>
               <span className="skill-cta-underline">
-                <span className="block w-[200%] h-full bg-gradient-to-r from-transparent via-blue-400 to-transparent animate-underlineMove" />
+                <span className={`block w-[200%] h-full bg-gradient-to-r ${dark ? "from-transparent via-blue-500 to-transparent" : "from-transparent via-blue-400 to-transparent"} animate-underlineMove`} />
               </span>
             </span>
           </div>
