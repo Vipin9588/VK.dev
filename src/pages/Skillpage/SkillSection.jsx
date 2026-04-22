@@ -335,7 +335,6 @@ export default function SkillSection({ dark }) {
           </div>
         </div>
 
-        {/* ── Full-width services section ── */}
         <ServicesSection dark={dark} />
       </section>
     </>
