@@ -12,39 +12,40 @@ const projectsData = [
     live: "https://vipin9588.github.io/IRONFORGE/",
     github: "#",
   },
+
   {
     id: 2,
-    title: "Smart Expense Splitter",
-    desc: "A full-stack application that helps users split bills easily and track payments with optimized settlement suggestions.",
+    title: "ShopEasy (Ecommerce UI)",
+    desc: "A modern and responsive ecommerce user interface for seamless online shopping experience.",
     fullDesc:
-      "Group expenses often lead to confusion and awkward conversations. This app streamlines the process by calculating exactly who owes who, offering optimized payment routes to minimize total transactions.",
-    tech: ["React", "Node.js", "MySQL"],
-    img: "./ecommerce.png", 
-    live: "https://vvchatk.onrender.com/",
+      "ShopEasy is a frontend-focused ecommerce UI built with React. It features product listings, category filtering, and a clean, responsive design optimized for all devices. The goal was to create a smooth and visually appealing shopping experience.",
+    tech: ["React", "Tailwind CSS"],
+    img: "./ecommerce.png",
+    live: "https://vipin9588.github.io/ShopEase/",
     github: "#",
   },
   {
     id: 3,
-    title: "ConnectHub (Currency Converter)",
-    desc: "A responsive web app that provides real-time currency conversion with a clean and user-friendly interface.",
+    title: "ConnectHub (Video Call  Chat App)",
+    desc: "A real-time communication app supporting video calls and messaging.",
     fullDesc:
-      "Designed for travelers and international businesses, this tool provides instant, accurate currency exchange rates without visual clutter. Focused heavily on load speed and mobile usability.",
-    tech: ["React", "Tailwind CSS"],
+      "ConnectHub is a real-time chat and video calling application designed for seamless communication. It enables users to connect via messages and video calls with a simple and user-friendly interface.",
+    tech: ["React", "Node.js", "Socket.io"],
     img: "./video.png",
     live: "https://vvchatk.onrender.com/",
     github: "#",
   },
-  {
-    id: 4,
-    title: "Election Care Business Website",
-    desc: "A professional website built for a consultancy business to showcase services and generate leads.",
-    fullDesc:
-      "A tailored digital solution for a political consultancy firm. The platform establishes brand authority, clearly communicates specialized services, and provides an easy funnel for capturing potential client leads.",
-    tech: ["React", "Tailwind CSS", "Express"],
-    img: "./car.png",
-    live: "https://vipin9588.github.io/car/",
-    github: "#",
-  },
+ {
+  id: 4,
+  title: "Car Showcase Website",
+  desc: "A responsive website to showcase cars with modern UI and smooth user experience.",
+  fullDesc:
+    "A frontend-focused car showcase website designed to display different vehicles with an attractive and user-friendly interface. It includes sections for featured cars, details, and clean navigation, optimized for responsiveness across devices.",
+  tech: ["React", "Tailwind CSS"],
+  img: "./car.png",
+  live: "https://vipin9588.github.io/car/",
+  github: "#",
+}
 ];
 
 export default function ProjectSection({ dark }) {
